@@ -1,0 +1,140 @@
+<svg xmlns="http://w3.org" viewBox="0 0 800 300" width="100%" height="300">
+  <style>
+    @import url('https://googleapis.com');
+    
+    .bg { fill: #0a0b10; }
+    .terminal-header { fill: #161b22; }
+    
+    .text-base {
+      font-family: 'Fira Code', monospace;
+      font-size: 16px;
+      fill: #c9d1d9;
+    }
+    
+    .highlight-blue { fill: #58a6ff; font-weight: bold; }
+    .highlight-purple { fill: #bc8cff; font-weight: bold; }
+    .highlight-green { fill: #7ee787; }
+    .text-title { font-size: 24px; font-weight: bold; fill: #ffffff; }
+    
+    /* Animação de Digitação Estilo Terminal */
+    .typewriter {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: typing 3.5s steps(60, end) forwards;
+    }
+    
+    @keyframes typing {
+      to { stroke-dashoffset: 0; }
+    }
+    
+    /* Efeito de Cursor Piscando */
+    .cursor {
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    
+    /* Estrelas Cintilantes no Fundo (Meteoro/Espaço) */
+    .star { fill: #ffffff; opacity: 0.3; }
+    .star-1 { animation: pulse 2s infinite ease-in-out; }
+    .star-2 { animation: pulse 3s infinite ease-in-out 1s; }
+    .star-3 { animation: pulse 1.5s infinite ease-in-out 0.5s; }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+    
+    /* Horizonte de Eventos (Animação de Pulso Central) */
+    .event-horizon {
+      transform-origin: 700px 150px;
+      animation: orbit 12s infinite linear;
+    }
+    @keyframes orbit {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <!-- Fundo Espacial -->
+  <rect width="800" height="300" class="bg" rx="10" />
+  
+  <!-- Estrelas Dinâmicas -->
+  <circle cx="150" cy="60" r="1.5" class="star star-1" />
+  <circle cx="380" cy="40" r="1" class="star star-2" />
+  <circle cx="520" cy="80" r="2" class="star star-3" />
+  <circle cx="230" cy="240" r="1.5" class="star star-2" />
+  <circle cx="90" cy="180" r="1" class="star star-1" />
+
+  <!-- Detalhe Visual do Horizonte de Eventos (Espacial/Futurista) -->
+  <g class="event-horizon">
+    <circle cx="700" cy="150" r="110" fill="none" stroke="url(#gradient-cyan)" stroke-width="0.5" stroke-dasharray="10 15" opacity="0.4"/>
+    <circle cx="700" cy="150" r="80" fill="none" stroke="url(#gradient-purple)" stroke-width="1" stroke-dasharray="5 10" opacity="0.6"/>
+    <circle cx="700" cy="150" r="50" fill="none" stroke="url(#gradient-blue)" stroke-width="2" opacity="0.8">
+      <animate attributeName="r" values="45;55;45" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="700" cy="150" r="15" fill="#000" />
+  </g>
+
+  <!-- Janela de Terminal -->
+  <rect x="20" y="20" width="550" height="260" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1.5" />
+  <rect x="20" y="20" width="550" height="35" class="terminal-header" rx="8" />
+  
+  <!-- Botões do Terminal Mac/Linux -->
+  <circle cx="40" cy="37" r="6" fill="#f85149" />
+  <circle cx="60" cy="37" r="6" fill="#f0883e" />
+  <circle cx="80" cy="37" r="6" fill="#56d364" />
+  <text x="300" y="42" font-family="'Fira Code', monospace" font-size="12" fill="#8b949e" text-anchor="middle">lucas-theodoro@eventhorizon:~</text>
+
+  <!-- Conteúdo de Texto com Animações Compartimentadas -->
+  <g transform="translate(40, 90)">
+    <!-- Linha 1: Nome -->
+    <text x="0" y="0" class="text-base text-title">
+      <animate attributeName="opacity" values="0;1" dur="0.5s" fill="freeze" />
+      Lucas Theodoro
+    </text>
+    
+    <!-- Linha 2: Cargo / Empresa -->
+    <text x="0" y="30" class="text-base">
+      <animate attributeName="opacity" values="0;1" begin="0.5s" fill="freeze" />
+      <tspan class="highlight-blue">~/founder</tspan> at <tspan class="highlight-purple">EventHorizon-AI</tspan>
+    </text>
+    
+    <!-- Linha 3: O que faz (Prompt do terminal simulado) -->
+    <text x="0" y="65" class="text-base fill-green" font-size="14">
+      <animate attributeName="opacity" values="0;1" begin="1.2s" fill="freeze" />
+      $ <tspan fill="#7ee787">exec --predict-temporal-ai</tspan>
+    </text>
+
+    <!-- Console Output com animação sequencial -->
+    <g font-size="13" opacity="0">
+      <animate attributeName="opacity" values="0;1" begin="2.0s" fill="freeze" />
+      <text x="15" y="95" class="text-base">■ Crypto Predictor: <tspan class="highlight-purple">Transformer + BiLSTM</tspan> [OK]</text>
+      <text x="15" y="120" class="text-base">■ Demand Forecasting: <tspan class="highlight-blue">LightGBM</tspan> [OK]</text>
+      <text x="15" y="145" class="text-base">■ PyPI Lib: <tspan fill="#e3b341">honest-validation-toolkit</tspan></text>
+      <text x="15" y="170" class="text-base">■ TabNews: <tspan fill="#f778ba">Top 1 Article Published</tspan></text>
+    </g>
+
+    <!-- Cursor Piscando no Final -->
+    <rect x="420" y="157" width="10" height="15" fill="#58a6ff" class="cursor">
+      <animate attributeName="visibility" values="visible;hidden;visible" dur="0.8s" repeatCount="indefinite" />
+    </rect>
+  </g>
+
+  <!-- Definição dos gradientes de cor neons -->
+  <defs>
+    <linearGradient id="gradient-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f6feb" />
+      <stop offset="100%" stop-color="#58a6ff" />
+    </linearGradient>
+    <linearGradient id="gradient-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8957e5" />
+      <stop offset="100%" stop-color="#bc8cff" />
+    </linearGradient>
+    <linearGradient id="gradient-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#39c5bb" />
+      <stop offset="100%" stop-color="#56d364" />
+    </linearGradient>
+  </defs>
+</svg>
